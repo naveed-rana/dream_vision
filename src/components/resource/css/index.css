@@ -1,0 +1,169 @@
+body{
+   color:  #424242;
+   font-size: 13px;
+}
+
+.footerbg{
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("../images/250618-AdmissionAdPostgraduate-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-top:10px;
+    
+}
+.footerbg img{
+    padding: 5px;
+}
+.peraColor{
+    color:#757575 !important;
+}
+.copyWrite{
+    margin-top:15px !important;
+    margin-bottom: 10px !important;
+  
+}
+.copyWrite span {
+    border-right: 2px solid black;
+    padding-right:4px;
+    color: cornflowerblue;
+}
+.marginTop20{
+    margin-top: 20px !important;
+}
+.headerFix a{
+    text-decoration: none;
+    padding: 0px 3px;
+}
+.headerFix{
+    border-radius: 0px !important;
+   padding-top:5px;
+   padding-bottom:5px; 
+}
+.iconFix{
+    position: relative;
+    top:9px;
+    padding:0 5px; 
+    color:#dbdbdb;
+}
+.iconFixOnSmile{
+    position: relative;
+    top:9px;
+    padding:0 5px; 
+}
+.iconFixfield{
+    color:#dbdbdb;
+}
+.paddingLeft{
+    padding-left: 30px;
+}
+.fontSizeSet p{
+     font-size: 12px !important;
+}
+.mapInput{
+    padding: 20px !important;
+}
+
+.paddingTop{
+    padding-top: 20px !important;
+}
+.paddingTopButton{
+    padding-top: 10px !important;
+}
+.iconSize{
+    font-size: 18px !important;
+}
+.postingPaper{
+    padding: 10px;
+}
+
+.largepostingPaper{
+    padding: 10px;
+    min-height: 40vh !important;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+.image-upload{
+    text-align: center;
+}
+
+.image-upload img
+{
+    width: 150px;
+    height: 150px;
+    border: 5px solid gainsboro;
+    cursor: pointer;
+}
+.loginPaper{
+    padding: 40px 20px 40px 20px;
+    margin-top:5vh;
+    margin-bottom:5vh;
+}
+.LoginContainer{
+padding: 60px 30px 20px 30px;
+}
+.loginbtn{
+    padding: 10px 0 !important;
+    width: 100% !important;
+}
+.largeIcon{
+    font-size: 30px !important;
+    position: relative;
+    top:3px;
+}
+.selectSignUp{
+    border:none !important;
+    width: 95%;
+    padding:10px;
+    font-weight: 400;
+    display: inline-block;
+    outline: none;
+}
+
+.mangaeWithSelect{
+    position: relative;
+    top: 6px !important;
+}
+.singUpBtn{
+    padding: 20px 0;
+    width: 100% !important;
+}
+.submitIcon{
+    position: relative;
+    top:5px;
+    padding-left: 3px !important;
+}
+.marginTop{
+    margin-top: 20px !important;
+}
+.shaddowNone{
+    border-radius: 0px !important;
+}
+.avatar{
+    font-size: 50px !important;
+   height: 250px !important;
+   width: 250px !important;
+}
+.pointer{
+    cursor: pointer !important;
+}
+.price{
+    color:#CB875A !important;
+}
+.iconFixpric{
+    position: relative;
+    top:7px;
+    padding:0 5px; 
+    
+}
+.colorSet{
+    color:#f43636 !important;
+}
+.allPadding{
+    padding: 30px 30px 0px 30px !important;
+}
+.width{
+    width:60vw;
+}

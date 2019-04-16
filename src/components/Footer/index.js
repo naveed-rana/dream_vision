@@ -13,6 +13,7 @@ class Footer extends Component {
   render() {
     return (
       <div>
+        <h2>Hello from Ishaq</h2>
         <div className="footerbg">
           <Grid container spacing={8}>
             <Grid item xs={12} sm={12} md={4}>

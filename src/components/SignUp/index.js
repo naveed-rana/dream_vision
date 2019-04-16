@@ -388,12 +388,12 @@ class SignUp extends Component {
                         />
                       }
                     />
-                    Copyright © 2018. OLX Pakistan - All Rights Reserved -
-                    Reproduction of material from olxpakistan pages without
-                    prior written permission from OLX is strictly prohibited and
+                    Copyright © 2019. DreamVision Pakistan - All Rights Reserved -
+                    Reproduction of material from DreamVision pages without
+                    prior written permission from DreamVision is strictly prohibited and
                     may result in legal action. Reproduction of material
-                    containing the OLX watermark constitutes unauthorized use of
-                    the OLX trade mark and may also result in legal action.
+                    containing the DreamVision watermark constitutes unauthorized use of
+                    the DreamVision trade mark and may also result in legal action.
                   </Typography>
                 </Grid>
                 <Grid

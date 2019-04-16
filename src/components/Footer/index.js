@@ -24,7 +24,7 @@ class Footer extends Component {
                 used goods and services by making it fast and easy for anyone to
                 post a listing through their mobile phone or on the web. */}
                 DreamVision is a platform for news lovers to keep people aware of
-                every activity which affects in some way by providing latest talk show
+                every activity which affects them in some way by providing latest talk show
                 videos where you can search videos of your own choice and keep yourself updated.
               </Typography>
             </Grid>

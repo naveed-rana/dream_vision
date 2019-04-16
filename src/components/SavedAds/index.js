@@ -54,7 +54,7 @@ class LaterView extends Component {
           <Grid item xs={12} md={8}>
             <Paper className="postingPaper" elevation={5}>
               <Typography variant="body2" align="center">
-                List of later view ads
+                List of later view Videos
               </Typography>
               <Divider />
             </Paper>
@@ -84,7 +84,7 @@ class LaterView extends Component {
                         className="paddingTop"
                         align="center"
                       >
-                        There is no later view ads
+                        There is no later view Video
                       </Typography>
                     )}
                     <Table>
@@ -127,7 +127,7 @@ class LaterView extends Component {
                         className="paddingTop"
                         align="center"
                       >
-                        There is no later view ads
+                        There is no later view Video
                       </Typography>
                     )}
                     <Table>
@@ -138,7 +138,7 @@ class LaterView extends Component {
                             count={copyData.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
-                            labelRowsPerPage="Ads per page"
+                            labelRowsPerPage="Videos per page"
                             rowsPerPageOptions={[5, 10, 25, 100, 500]}
                             onChangePage={this.handleChangePage}
                             onChangeRowsPerPage={this.handleChangeRowsPerPage}

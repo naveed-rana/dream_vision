@@ -88,7 +88,7 @@ class Footer extends Component {
           <Grid item xs={12} sm={12} md={12}>
             <center>
               <Typography variant="body2">
-                Copyright © 2018 Olx Pakistan - All Rights Reserved.
+                Copyright © 2019 Olx Pakistan - All Rights Reserved.
               </Typography>
               <Typography variant="caption">
                 <span>Privacy Policy</span> Term Conditions

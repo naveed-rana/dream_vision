@@ -147,7 +147,7 @@ class Navigation extends React.Component {
                         <Search className="iconSize" />
                         Search
                       </Button>
-                      <Button
+                      {/* <Button
                         component={Link}
                         to={POSTING}
                         variant="outlined"
@@ -157,7 +157,7 @@ class Navigation extends React.Component {
                       >
                         <NoteAdd className="iconSize" />
                         Post an Ad
-                      </Button>
+                      </Button> */}
                     </Grid>
                   </Hidden>
                 </Grid>

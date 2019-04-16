@@ -95,7 +95,7 @@ class Login extends Component {
                     fullWidth={true}
                     required={true}
                     helperText=""
-                    placeholder="Enter Email"
+                    placeholder="Email"
                     onChange={this.onChangeHandler}
                   />
                 </Grid>

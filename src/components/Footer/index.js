@@ -13,17 +13,19 @@ class Footer extends Component {
   render() {
     return (
       <div>
-        <h2>Hello from Ishaq</h2>
         <div className="footerbg">
           <Grid container spacing={8}>
             <Grid item xs={12} sm={12} md={4}>
               <img src={logo} alt="logo" />
               <Typography paragraph variant="caption" className="peraColor">
-                OLX is the world's leading classifieds platform which provides
+                {/* OLX is the world's leading classifieds platform which provides
                 local communities in high-growth markets with vibrant online
                 marketplaces: OLX connects local people to buy, sell or exchange
                 used goods and services by making it fast and easy for anyone to
-                post a listing through their mobile phone or on the web.
+                post a listing through their mobile phone or on the web. */}
+                DreamVision is a platform for news lovers to keep people aware of
+                every activity which affects them in some way by providing latest talk show
+                videos where you can search videos of your own choice and keep yourself updated.
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={4} className="marginTop20">
@@ -31,17 +33,17 @@ class Footer extends Component {
 
               <List className="fontSizeSet">
                 <ListItem align="center">
-                  <ListItemText secondary="Locations Map" />
+                  <ListItemText secondary="Aaj Shahzeb Khanzada Kay Sath" />
                 </ListItem>
                 <ListItem>
-                  <ListItemText secondary=" Popular searches" />
+                  <ListItemText secondary="Meray Mutabiq" />
                 </ListItem>
                 <ListItem>
-                  <ListItemText secondary="Archive" />
+                  <ListItemText secondary="Sar e Aam" />
                 </ListItem>
 
                 <ListItem>
-                  <ListItemText secondary="Sitemap" />
+                  <ListItemText secondary="Naya Pakistan" />
                 </ListItem>
               </List>
             </Grid>
@@ -55,7 +57,7 @@ class Footer extends Component {
                       <Email />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText secondary="help@olxpakistan.com" />
+                  <ListItemText secondary="help@dreamvision.com" />
                 </ListItem>
                 <ListItem>
                   <ListItemAvatar>
@@ -89,7 +91,7 @@ class Footer extends Component {
           <Grid item xs={12} sm={12} md={12}>
             <center>
               <Typography variant="body2">
-                Copyright © 2019 Olx Pakistan - All Rights Reserved.
+                Copyright © 2019 DreamVision Pakistan - All Rights Reserved.
               </Typography>
               <Typography variant="caption">
                 <span>Privacy Policy</span> Term Conditions

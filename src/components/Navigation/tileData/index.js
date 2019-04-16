@@ -27,7 +27,7 @@ export const mailFolderListItems = (
       <ListItemIcon>
         <Dashboard />
       </ListItemIcon>
-      <ListItemText primary="My ads" />
+      <ListItemText primary="My Videos" />
     </ListItem>
     <ListItem button component={Link} to={routes.MESSAGE}>
       <ListItemIcon>

@@ -153,7 +153,7 @@ class Search extends Component {
           <Grid item xs={12} md={8}>
             <Paper className="postingPaper" elevation={5}>
               <Typography variant="body2" align="center">
-                SEARCH AN ADD
+                SEARCH A Video
               </Typography>
               <Divider />
               <Grid container spacing={8} className="paddingTop">
@@ -222,7 +222,7 @@ class Search extends Component {
                         align="center"
                         className="paddingTop"
                       >
-                        No ads related to your query! Please try to another
+                        No Video related to your query! Please try another
                         query.
                       </Typography>
                     )}
@@ -266,7 +266,7 @@ class Search extends Component {
                         align="center"
                         className="paddingTop"
                       >
-                        No ads related to your query! Please try to another
+                        No video related to your query! Please try another
                         query.
                       </Typography>
                     )}

@@ -78,11 +78,6 @@ class HomePage extends Component {
                     icon={<Message />}
                   />
 
-                  {/*  <BottomNavigationAction
-                className="buttomNavigation"
-                label="Saved Ads" 
-                component={Link} to={routes.SAVEDADS}
-              icon={<Icon>streetview</Icon>} /> */}
                 </BottomNavigation>
               </Paper>
             </Hidden>

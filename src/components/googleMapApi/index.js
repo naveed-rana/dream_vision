@@ -36,12 +36,12 @@ class LocationSearchInput extends React.Component {
 
   render() {
     return (
-      <PlacesAutocomplete
-        value={this.state.address}
-        onChange={this.handleChange}
-        onSelect={this.handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+      // <PlacesAutocomplete
+      //   value={this.state.address}
+      //   onChange={this.handleChange}
+      //   onSelect={this.handleSelect}
+      // >
+      //   {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <TextField
               InputProps={{
@@ -53,13 +53,13 @@ class LocationSearchInput extends React.Component {
                 )
               }}
               fullWidth
-              {...getInputProps({
-                placeholder: "Location ...",
-                className: "location-search-input"
-              })}
+              // {...getInputProps({
+              //   placeholder: "Location ...",
+              //   className: "location-search-input"
+              // })}
             />
 
-            <div
+            {/* <div
               style={{
                 position: "absolute",
                 zIndex: 1100,
@@ -115,10 +115,10 @@ class LocationSearchInput extends React.Component {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
-        )}
-      </PlacesAutocomplete>
+      //   )}
+      // </PlacesAutocomplete>
     );
   }
 }

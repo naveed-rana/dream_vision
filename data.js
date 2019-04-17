@@ -1,4 +1,4 @@
-let data = [{
+export let data = [{
     url:'https://www.youtube.com/watch?v=VDgst3v0bxM&list=PL77NPbvlfztaqiSISvGMh96eB-hKFim_x',
     description:"Aaj Shahzaib Khanzada Kay Sath - Suspicious Transactions: Shehbaz Sharif&s Family Under Severe Charges Of Money Launderin",
     tags:"#ASKK #SulemanShehbaz #NAB",
@@ -31,4 +31,3 @@ let data = [{
     showname:"AAJ SHAHZEB KHANZADA KAY SAATH"
 }
 ]
-

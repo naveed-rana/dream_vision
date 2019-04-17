@@ -6,11 +6,13 @@ import {
   GETADSUSERAds,
   USERADDELETE
 } from "../../actions/searchActions";
+import { data } from '../../data';
+
 const INITIAL_STATE = {
   mapSearch: "",
   titleSearch: "",
   suggestions: [],
-  ads: [],
+  ads: data,
   myAds: []
 };
 

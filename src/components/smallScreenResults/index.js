@@ -31,6 +31,7 @@ import { compose } from "recompose";
 import moment from "moment";
 import Tooltip from "@material-ui/core/Tooltip";
 import { startSendMessage } from "../redux/actions/messageActions";
+import ReactPlayer from 'react-player';
 const baseURL =
   window.location.hostname === "localhost" ? "http://localhost:8080" : "";
 
@@ -151,6 +152,10 @@ class SmallScreenResults extends React.Component {
     toast.success("Successfully remove from later view list!");
   };
 
+  onThumbnailClicked = () => {
+    this.setState({ expanded: !this.state.expanded })
+  }
+
   render() {
     const { classes, large } = this.props;
     const { message, viewlater } = this.state;
@@ -213,30 +218,32 @@ class SmallScreenResults extends React.Component {
           <CardHeader
             avatar={
               <Avatar aria-label="Recipe" className={classes.avatar}>
-                {this.props.ad.username.charAt(0)}
+                {this.props.ad.channel_name.charAt(0)}
               </Avatar>
             }
             action={
               <Typography component="p" className="price">
-                <MonetizationOn className="iconFixpric" />
-                {this.props.ad.price} only &nbsp; &nbsp; &nbsp; &nbsp;
+                {/* <MonetizationOn className="iconFixpric" />
+                {this.props.ad.price} only &nbsp; &nbsp; &nbsp; &nbsp; */}
               </Typography>
             }
             title={this.props.ad.title}
-            subheader={`${moment(this.props.ad.timestamp).format("ll")}`}
+            // subheader={`${moment(this.props.ad.timestamp).format("ll")}`}
           />
           <CardMedia
             className={classes.media}
-            image={`${baseURL}/static/${this.props.ad.media[0]}`}
-            title={this.props.ad.tag}
+            style={{cursor:'pointer'}}
+            // image={`${baseURL}/static/${this.props.ad.thumbnail}`}
+            image={this.props.ad.thumbnail}
+            title={this.props.ad.tags}
+            onClick={this.onThumbnailClicked}
           />
           <CardContent>
-            <Typography component="p">{this.props.ad.discriptions}</Typography>
+            <Typography component="p">{this.props.ad.description}</Typography>
             <Typography variant="caption" className={classes.marginTops}>
-              Category: <b> {this.props.ad.category} </b>{" "}
-              &nbsp;&nbsp;&nbsp;&nbsp; Conditions:
-              <b> {this.props.ad.condition} </b>&nbsp;&nbsp;&nbsp;&nbsp; Tags:
-              <b> {this.props.ad.tag} </b>
+              Channel Name: <b> {this.props.ad.channel_name} </b>{" "}
+              <br /> Tags:
+              <b> {this.props.ad.tags} </b>
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
@@ -259,14 +266,14 @@ class SmallScreenResults extends React.Component {
                 </IconButton>
               </Tooltip>
             )}
-            <Tooltip title="Message" placement="right">
+            {/* <Tooltip title="Message" placement="right">
               <IconButton
                 aria-label="Add to favorites"
                 onClick={this.handleClickOpen}
               >
                 <Message />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip title="Expand and get more details" placement="left">
               <IconButton
                 className={classnames(classes.expand, {
@@ -282,13 +289,18 @@ class SmallScreenResults extends React.Component {
           </CardActions>
           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <MediaSlider
-                media={this.props.ad.media}
+              <ReactPlayer 
+                url={this.props.ad.youtube_url} 
+                playing
+                controls={true}
+                width='100%' />
+              {/* <MediaSlider
+                media={this.props.ad.thumbnail}
                 username={this.props.ad.username}
                 userphone={this.props.ad.userphone}
                 useremail={this.props.ad.useremail}
                 userlocations={this.props.ad.userlocations}
-              />
+              /> */}
             </CardContent>
           </Collapse>
         </Card>

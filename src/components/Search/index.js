@@ -29,40 +29,38 @@ class Search extends Component {
       locations: "",
       category: "",
       adsViewOf: true,
-      loading: true
+      loading: false
     };
   }
 
   componentDidMount() {
-    this.props.startGetAds({ category: "all" });
-
     document.title = "Search";
-    let title = this.props.titleSearch.toLowerCase();
-    let locations = this.props.mapSearch;
     let data = this.props.ads;
-    let copyData;
-    if (data.length > 0) {
-      if (title !== "" && locations !== "") {
-        copyData = data.filter(
-          item =>
-            (item.title.includes(title) || item.tag.includes(title)) &&
-            item.userlocations === locations
-        );
-        this.setState({ data, copyData });
-      } else if (title !== "") {
-        copyData = data.filter(
-          item => item.title.includes(title) || item.tag.includes(title)
-        );
-        this.setState({ data, copyData });
-      } else if (locations !== "") {
-        copyData = data.filter(item => item.userlocations === locations);
-        this.setState({ data, copyData });
-      } else {
-        this.setState({ copyData: data });
-      }
-    } else {
-      this.props.startGetAds({ category: "all" });
-    }
+    this.setState({copyData:data,data:data})
+    // console.log("In search ===> ",data);
+    // let copyData;
+    // if (data.length > 0) {
+    //   if (title !== "" && locations !== "") {
+    //     copyData = data.filter(
+    //       item =>
+    //         (item.title.includes(title) || item.tag.includes(title)) &&
+    //         item.userlocations === locations
+    //     );
+    //     this.setState({ data, copyData });
+    //   } else if (title !== "") {
+    //     copyData = data.filter(
+    //       item => item.title.includes(title) || item.tag.includes(title)
+    //     );
+    //     this.setState({ data, copyData });
+    //   } else if (locations !== "") {
+    //     copyData = data.filter(item => item.userlocations === locations);
+    //     this.setState({ data, copyData });
+    //   } else {
+    //     this.setState({ copyData: data });
+    //   }
+    // } else {
+    //   this.props.startGetAds({ category: "all" });
+    // }
   }
 
   adsViewOff = () => {
@@ -81,41 +79,41 @@ class Search extends Component {
     this.setState({ category: e.target.value, loading: true });
     this.props.startGetAds({ category: e.target.value });
   };
-  getTitleSearch = title => {
-    title = title.toLowerCase();
-    this.setState({ title });
-    var { data, copyData, locations } = this.state;
-    if (locations === "") {
-      copyData = data.filter(
-        item => item.title.includes(title) || item.tag.includes(title)
-      );
-      this.setState({ copyData });
-    } else {
-      copyData = data.filter(
-        item =>
-          (item.title.includes(title) || item.tag.includes(title)) &&
-          item.userlocations.startsWith(locations.toUpperCase())
-      );
-      this.setState({ copyData });
-    }
-  };
-  getMapState = locations => {
-    this.setState({ locations });
-    let { title, data, copyData } = this.state;
-    if (title === "") {
-      copyData = data.filter(item =>
-        item.userlocations.startsWith(locations.toUpperCase())
-      );
-      this.setState({ copyData });
-    } else {
-      copyData = data.filter(
-        item =>
-          (item.title.includes(title) || item.tag.includes(title)) &&
-          item.userlocations.startsWith(locations.toUpperCase())
-      );
-      this.setState({ copyData });
-    }
-  };
+  // getTitleSearch = title => {
+  //   title = title.toLowerCase();
+  //   this.setState({ title });
+  //   var { data, copyData, locations } = this.state;
+  //   if (locations === "") {
+  //     copyData = data.filter(
+  //       item => item.title.includes(title) || item.tag.includes(title)
+  //     );
+  //     this.setState({ copyData });
+  //   } else {
+  //     copyData = data.filter(
+  //       item =>
+  //         (item.title.includes(title) || item.tag.includes(title)) &&
+  //         item.userlocations.startsWith(locations.toUpperCase())
+  //     );
+  //     this.setState({ copyData });
+  //   }
+  // };
+  // getMapState = locations => {
+  //   this.setState({ locations });
+  //   let { title, data, copyData } = this.state;
+  //   if (title === "") {
+  //     copyData = data.filter(item =>
+  //       item.userlocations.startsWith(locations.toUpperCase())
+  //     );
+  //     this.setState({ copyData });
+  //   } else {
+  //     copyData = data.filter(
+  //       item =>
+  //         (item.title.includes(title) || item.tag.includes(title)) &&
+  //         item.userlocations.startsWith(locations.toUpperCase())
+  //     );
+  //     this.setState({ copyData });
+  //   }
+  // };
   handleChangePage = (event, page) => {
     this.setState({ page });
   };
@@ -133,6 +131,8 @@ class Search extends Component {
       adsViewOf,
       loading
     } = this.state;
+
+    console.log("ads", this.state.data);
     return (
       <div>
         <Grid container spacing={8}>
@@ -206,6 +206,7 @@ class Search extends Component {
                 />
               ) : (
                 <div>
+                  { console.log(this.state.copyData) }
                   <Hidden only={["md", "xl", "lg"]}>
                     {copyData.length > 0 ? (
                       copyData

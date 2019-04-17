@@ -11,12 +11,12 @@ class LocationSearchInput extends React.Component {
 
   componentDidMount() {
     this.setState({ address: this.props.locations });
-    this.props.getMapState(this.props.locations);
+    // this.props.getMapState(this.props.locations);
   }
 
   handleChange = e => {
     this.setState({ address: e.target.value });
-    this.props.getMapState(e.target.value);
+    // this.props.getMapState(e.target.value);
   };
 
   render() {

@@ -24,6 +24,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { startSendMessage } from "../redux/actions/messageActions";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
+import ReactPlayer from 'react-player';
 const baseURL =
   window.location.hostname === "localhost" ? "http://localhost:8080" : "";
 
@@ -250,18 +251,18 @@ class MediaControlCard extends Component {
             <Card className={classes.card} elevation={0}>
               <CardMedia
                 className={classes.cover}
-                image={`${baseURL}/static/${this.props.ad.media[0]}`}
+                image={this.props.ad.thumbnail}
                 title="Live from space album cover"
               />
               <div className={classes.details}>
                 <CardContent className={classes.content}>
                   <Grid container spacing={8}>
-                    <Grid item xs={6} md={6}>
+                    <Grid item xs={11} md={11}>
                       <Typography variant="body2">
                         {this.props.ad.title}
                       </Typography>
                     </Grid>
-                    <Grid item xs={6} md={6}>
+                    <Grid item xs={1} md={1} style={{marginBottom: 10}}>
                       <Grid container spacing={8}>
                         <Grid
                           item
@@ -291,50 +292,56 @@ class MediaControlCard extends Component {
                               />
                             </Tooltip>
                           )}
-                          <Tooltip title="Send Message" placement="top">
+                          {/* <Tooltip title="Send Message" placement="top">
                             <Message
                               className="iconFix otherevent"
                               onClick={this.handleClickOpen}
                             />
-                          </Tooltip>
+                          </Tooltip> */}
                         </Grid>
-                        <Grid item xs={6} md={6}>
-                          <Typography component="p" className="price">
+                        {/* <Grid item xs={6} md={6}> */}
+                          {/* <Typography component="p" className="price">
                             <Tooltip title="Price" placement="top">
                               <MonetizationOn className="iconFixpric" />
                             </Tooltip>
                             {this.props.ad.price} only
-                          </Typography>
-                        </Grid>
+                          </Typography> */}
+                        {/* </Grid> */}
                       </Grid>
                     </Grid>
                   </Grid>
 
-                  <Typography variant="caption" color="textSecondary">
+                  {/* <Typography variant="caption" color="textSecondary">
                     {dateFormate(this.props.ad.timestamp)}
-                  </Typography>
-
+                  </Typography> */}
+                  
                   <Typography variant="body1" className={classes.discriptions}>
-                    {this.props.ad.discriptions}
+                    {this.props.ad.details}
                   </Typography>
                   <Typography variant="caption" className={classes.marginTops}>
-                    Category: <b> {this.props.ad.category} </b>{" "}
-                    &nbsp;&nbsp;&nbsp;&nbsp; Conditions:
-                    <b> {this.props.ad.condition} </b>&nbsp;&nbsp;&nbsp;&nbsp;
-                    Tags:<b> {this.props.ad.tag} </b>
+                    Channel Name: <b> {this.props.ad.channel_name} </b>{" "}
+                    {/* &nbsp;&nbsp;&nbsp;&nbsp; Conditions:
+                    <b> {this.props.ad.condition} </b> */}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Tags:<b> {this.props.ad.tags} </b>
                   </Typography>
                 </CardContent>
               </div>
             </Card>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <MediaSlider
+            <ReactPlayer 
+                  url={this.props.ad.youtube_url} 
+                  playing
+                  controls={true}
+                  width='100%' />
+            {/* <MediaSlider
               media={this.props.ad.media}
               username={this.props.ad.username}
               userphone={this.props.ad.userphone}
               useremail={this.props.ad.useremail}
               userlocations={this.props.ad.userlocations}
-            />
+            /> */}
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>

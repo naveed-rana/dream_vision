@@ -98,7 +98,7 @@ class Navigation extends React.Component {
                     <Link to={HOME} className={classes.underlineRemove}>
                       <Typography variant="body2" color="inherit">
                         <img
-                          src={require("../resource/images/smallogo.png")}
+                          src={require("../resource/images/smallogo2.png")}
                           alt="logo"
                         />
                         PAKISTAN

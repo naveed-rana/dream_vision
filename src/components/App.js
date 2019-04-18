@@ -6,11 +6,17 @@ import "./resource/css/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import OlxPakistan from "./Navigation";
 import { startGetUser } from "./redux/actions/userAction";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {
   startGetSuggestions,
   startGetAds
 } from "./redux/actions/searchActions";
 import { connect } from "react-redux";
+
+
+import Slider from "./Home/slider";
+
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +39,9 @@ class App extends Component {
           pauseOnHover
         />
         <OlxPakistan />
+
+        {/* <Slider /> */}
+
         <Footer />
       </div>
     );

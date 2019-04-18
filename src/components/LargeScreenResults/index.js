@@ -101,7 +101,8 @@ class MediaControlCard extends Component {
       open: false,
       message: "",
       getItems: [],
-      viewlater: false
+      viewlater: false,
+      isPlaying: false
     };
   }
 
@@ -110,7 +111,7 @@ class MediaControlCard extends Component {
     let view = false;
     if (data) {
       data.forEach(element => {
-        if (element._id === this.props.ad._id) {
+        if (element.details === this.props.ad.details) {
           view = true;
         }
       });
@@ -155,22 +156,23 @@ class MediaControlCard extends Component {
   };
 
   onClickHandler = () => {
-    var { getItems } = this.state;
+    // var { getItems } = this.state;
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
     let obj = {
-      _id: this.props.ad._id,
+      // _id: this.props.ad._id,
       title: this.props.ad.title,
-      category: this.props.ad.category,
-      condition: this.props.ad.price,
-      price: this.props.ad.price,
-      discriptions: this.props.ad.discriptions,
-      tag: this.props.ad.tag,
-      user: this.props.ad.user,
-      username: this.props.ad.username,
-      userphone: this.props.ad.userphone,
-      useremail: this.props.ad.useremail,
-      userlocations: this.props.ad.userlocations,
-      media: this.props.ad.media,
-      timestamp: this.props.ad.timestamp
+      // category: this.props.ad.category,
+      // condition: this.props.ad.price,
+      // price: this.props.ad.price,
+      details: this.props.ad.details,
+      tags: this.props.ad.tags,
+      // user: this.props.ad.user,
+      channel_name: this.props.ad.channel_name,
+      youtube_url: this.props.ad.youtube_url,
+      // useremail: this.props.ad.useremail,
+      // userlocations: this.props.ad.userlocations,
+      channel: this.props.ad.channel,
+      thumbnail: this.props.ad.thumbnail
     };
 
     getItems.push(obj);
@@ -180,11 +182,12 @@ class MediaControlCard extends Component {
   };
 
   onRemoveHandler = () => {
-    let { getItems } = this.state;
-    let newlist = getItems.filter(item => item._id !== this.props.ad._id);
+    // let { getItems } = this.state;
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
+    let newlist = getItems.filter(item => item.details !== this.props.ad.details);
     localStorage.setItem("savedads", JSON.stringify(newlist));
     this.setState({ getItems: newlist, viewlater: false });
-    toast.success("Successfully remove from later view list!");
+    toast.success("Successfully removed from later view list!");
   };
 
   render() {
@@ -279,6 +282,7 @@ class MediaControlCard extends Component {
                               <Favorite
                                 onClick={this.onRemoveHandler}
                                 className="iconFix otherevent colorSet"
+                                style={{padding: 10}}
                               />
                             </Tooltip>
                           ) : (
@@ -289,6 +293,7 @@ class MediaControlCard extends Component {
                               <Favorite
                                 onClick={this.onClickHandler}
                                 className="iconFix otherevent"
+                                style={{padding: 10}}
                               />
                             </Tooltip>
                           )}
@@ -332,7 +337,7 @@ class MediaControlCard extends Component {
           <ExpansionPanelDetails>
             <ReactPlayer 
                   url={this.props.ad.youtube_url} 
-                  playing
+                  // playing
                   controls={true}
                   width='100%' />
             {/* <MediaSlider

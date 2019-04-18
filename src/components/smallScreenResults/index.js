@@ -82,7 +82,7 @@ class SmallScreenResults extends React.Component {
     let view = false;
     if (data) {
       data.forEach(element => {
-        if (element._id === this.props.ad._id) {
+        if (element.details === this.props.ad.details) {
           view = true;
         }
       });
@@ -120,22 +120,23 @@ class SmallScreenResults extends React.Component {
   };
 
   onClickHandler = () => {
-    var { getItems } = this.state;
+    // var { getItems } = this.state;
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
     let obj = {
-      _id: this.props.ad._id,
+      // _id: this.props.ad._id,
       title: this.props.ad.title,
-      category: this.props.ad.category,
-      condition: this.props.ad.price,
-      price: this.props.ad.price,
-      discriptions: this.props.ad.discriptions,
-      tag: this.props.ad.tag,
-      user: this.props.ad.user,
-      username: this.props.ad.username,
-      userphone: this.props.ad.userphone,
-      useremail: this.props.ad.useremail,
-      userlocations: this.props.ad.userlocations,
-      media: this.props.ad.media,
-      timestamp: this.props.ad.timestamp
+      // category: this.props.ad.category,
+      // condition: this.props.ad.price,
+      // price: this.props.ad.price,
+      details: this.props.ad.details,
+      tags: this.props.ad.tags,
+      // user: this.props.ad.user,
+      channel_name: this.props.ad.channel_name,
+      youtube_url: this.props.ad.youtube_url,
+      // useremail: this.props.ad.useremail,
+      // userlocations: this.props.ad.userlocations,
+      channel: this.props.ad.channel,
+      thumbnail: this.props.ad.thumbnail
     };
 
     getItems.push(obj);
@@ -145,7 +146,8 @@ class SmallScreenResults extends React.Component {
   };
 
   onRemoveHandler = () => {
-    let { getItems } = this.state;
+    // let { getItems } = this.state;
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
     let newlist = getItems.filter(item => item._id !== this.props.ad._id);
     localStorage.setItem("savedads", JSON.stringify(newlist));
     this.setState({ getItems: newlist, viewlater: false });
@@ -291,7 +293,7 @@ class SmallScreenResults extends React.Component {
             <CardContent>
               <ReactPlayer 
                 url={this.props.ad.youtube_url} 
-                playing
+                // playing
                 controls={true}
                 width='100%' />
               {/* <MediaSlider

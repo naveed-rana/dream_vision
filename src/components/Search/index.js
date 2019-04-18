@@ -156,8 +156,11 @@ class Search extends Component {
                 SEARCH A Video
               </Typography>
               <Divider />
+
+                
+
               <Grid container spacing={8} className="paddingTop">
-                <Grid item xs={12} md={4} className="paddingTop">
+                {/* <Grid item xs={12} md={4} className="paddingTop">
                   <select
                     name="category"
                     style={{ fontWeight: "bold" }}
@@ -177,18 +180,18 @@ class Search extends Component {
                     <option value="property">Property</option>
                     <option value="books">Books</option>
                   </select>
-                </Grid>
-                <Grid item xs={12} md={4} className="paddingTop">
+                </Grid> */}
+                <Grid item xs={12} md={8} className="paddingBottom">
                   <SearchTitle
                     getTitleSearch={this.getTitleSearch}
                     titles={title}
                   />
                 </Grid>
-                <Hidden only={["sm", "xs"]}>
+                {/* <Hidden only={["sm", "xs"]}>
                   <Grid item xs={12} md={4} className="paddingTop">
                     <Map getMapState={this.getMapState} locations={locations} />
                   </Grid>
-                </Hidden>
+                </Hidden> */}
                 <Hidden only={["md", "lg", "xl"]}>
                   <Grid item xs={12} md={4} className="paddingTop marginTop">
                     <Map getMapState={this.getMapState} locations={locations} />

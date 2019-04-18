@@ -101,7 +101,6 @@ class Navigation extends React.Component {
                           src={require("../resource/images/smallogo2.png")}
                           alt="logo"
                         />
-                        PAKISTAN
                       </Typography>
                     </Link>
                   </Grid>
@@ -128,11 +127,11 @@ class Navigation extends React.Component {
                   </Hidden>
 
                   <Hidden smDown>
-                    <Grid item xs={3} md={3} className="paddingTop">
+                    {/* <Grid item xs={3} md={3} className="paddingTop">
                       <Map underline={true} />
-                    </Grid>
+                    </Grid> */}
 
-                    <Grid item xs={5} md={3} className="paddingTop">
+                    <Grid item xs={8} md={6} className="paddingTop">
                       <SearchComp />
                     </Grid>
                     <Grid item xs={1} md={3} className="paddingTopButton">

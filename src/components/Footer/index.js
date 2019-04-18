@@ -16,7 +16,7 @@ class Footer extends Component {
         <div className="footerbg">
           <Grid container spacing={8}>
             <Grid item xs={12} sm={12} md={4}>
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" style={{height:"220px"}} />
               <Typography paragraph variant="caption" className="peraColor">
                 {/* OLX is the world's leading classifieds platform which provides
                 local communities in high-growth markets with vibrant online

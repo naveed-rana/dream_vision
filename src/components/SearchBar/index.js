@@ -113,6 +113,10 @@ const styles = theme => ({
   },
   divider: {
     height: theme.spacing.unit * 2
+  },
+  borderClass:{
+      border:"1px solid black"
+      // outline:"1px solid black"
   }
 });
 
@@ -166,7 +170,7 @@ class IntegrationAutosuggest extends React.Component {
           {...autosuggestProps}
           inputProps={{
             classes,
-            placeholder: "Search a Video",
+            placeholder: "Search Your Dream Video",
             value: this.state.single,
             onChange: this.handleChange("single")
           }}

@@ -5,26 +5,20 @@ import Hidden from "@material-ui/core/Hidden";
 import { connect } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import CardCustom from "../smallScreenResults";
 import TablePaginationActionsWrapped from "../paginations";
 import TablePagination from "@material-ui/core/TablePagination";
 import Table from "@material-ui/core/Table";
 import TableFooter from "@material-ui/core/TableFooter";
 import TableRow from "@material-ui/core/TableRow";
-
-import Slider from "react-slick";
+import VideoCard from "./card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ReactPlayer from "react-player";
-import { spacing } from '@material-ui/system';
 import Tooltip from "@material-ui/core/Tooltip";
 import { toast } from "react-toastify";
 import PropTypes from 'prop-types';
@@ -124,23 +118,6 @@ const {classes} = this.props;
               <Divider />
               <Grid container spacing={8} className="">
 
-
-                {/* <Grid
-                  item
-                  xs={6}
-                  md={3}
-                  className="pointer"
-                  onClick={() => this.onClickHandler("bikes")}
-                  align="center"
-                >
-                  <img src={require("../resource/images/bike.JPG")} alt="" />
-                  <Typography variant="body2">Bike</Typography>
-                </Grid>
-                */}
-
-
-
-
                 <Grid item xs={12} md={12}>
                   {/* <Divider /> */}
                   {
@@ -202,9 +179,6 @@ const {classes} = this.props;
                                 width='100%' />
                           </CardContent>
                         <CardActions>
-                        {/* <IconButton aria-label="Add to favorites">
-                              <FavoriteIcon />
-                          </IconButton> */}
                         </CardActions>
                     </Card>
                   </Grid> )
@@ -218,8 +192,8 @@ const {classes} = this.props;
                  
                 </Grid>
                 <Divider />
-                <Paper>
-                <Grid container spacing={8} className="padding" style={{paddingLeft: "10px", paddingRight: "10px"}} px={2}>
+                {/* <Paper> */}
+                <Grid container spacing={8} className="padding" style={{paddingLeft: "10px", paddingRight: "10px"}}>
                   {
                       copyData
                       .slice(
@@ -230,30 +204,7 @@ const {classes} = this.props;
                         console.log(news)
                         return (
                           <Grid item xs={12} md={3} key={i}>  
-                          <Card className=""  className={classes.heightFixed}>
-                          <CardActionArea>
-                            <CardMedia
-                              className=""
-                              component="img"
-                              image={news.thumbnail}
-                              title="Contemplative Reptile"
-                              onClick={()=>this.changeCurrentVideo(news)}
-                              />
-                            <CardContent onClick={()=>this.changeCurrentVideo(news)}>
-                              <Typography gutterBottom variant="h5" component="h2">
-                                {news.channel_name}
-                              </Typography>
-                              <Typography  component="h5">
-                                { news.title }
-                              </Typography>
-                            </CardContent>
-                          </CardActionArea>
-                          <CardActions>
-                          {/* <IconButton aria-label="Add to favorites">
-                                <FavoriteIcon />
-                            </IconButton> */}
-                          </CardActions>
-                      </Card>
+                          <VideoCard news={news} changeCurrentVideo={this.changeCurrentVideo}/>
                       </Grid>
                   )})
                   }
@@ -276,49 +227,10 @@ const {classes} = this.props;
                       </TableFooter>
                     </Table>
                 </Grid>
-                </Paper>
+                {/* </Paper> */}
                
               </Grid>
             </Paper>
-           
-                   {/* <Grid item xs={12} md={12}>
-<Slider {...settings}>
-                    {
-                    copyData.map((news,i)=>{
-                      console.log(news);
-                      return (
-                              <Grid item xs={12} md={3} key={i}>  
-                             
-                                <Card className="" >
-                                  <CardActionArea>
-                                    <CardMedia
-                                      className=""
-                                      component="img"
-                                      image={news.thumbnail}
-                                      title="Contemplative Reptile"
-                                      />
-                                    <CardContent>
-                                      <Typography gutterBottom variant="h5" component="h2">
-                                        {news.channel_name}
-                                      </Typography>
-                                      <Typography  component="p">
-                                        { news.details }
-                                      </Typography>
-                                    </CardContent>
-                                  </CardActionArea>
-                                  <CardActions>
-                                  <IconButton aria-label="Add to favorites">
-                                        <FavoriteIcon />
-                                    </IconButton>
-                                  </CardActions>
-                              </Card>
-                                   </Grid>
-                            )})}
-</Slider>
-                    </Grid>  */}
-
-
-
           </Grid>
           <Hidden smDown>
             <Grid item xs={1} md={2}>

@@ -196,9 +196,6 @@ class MediaControlCard extends Component {
   render() {
     const { classes } = this.props;
     const { expanded, message, viewlater } = this.state;
-
-    toast.success("any fool thing can happen at any time");
-
     return (
       <div>
          <Dialog

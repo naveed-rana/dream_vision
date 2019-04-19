@@ -168,7 +168,7 @@ class AutoComplete extends React.Component {
           {...autosuggestProps}
           inputProps={{
             classes,
-            placeholder: "Search by Title or Tag",
+            placeholder: "search your desired video",
             value: this.state.single,
             onChange: this.handleChange("single")
           }}

@@ -120,21 +120,12 @@ class SmallScreenResults extends React.Component {
   };
 
   onClickHandler = () => {
-    // var { getItems } = this.state;
     var getItems = JSON.parse( localStorage.getItem("savedads") );
     let obj = {
-      // _id: this.props.ad._id,
-      title: this.props.ad.title,
-      // category: this.props.ad.category,
-      // condition: this.props.ad.price,
-      // price: this.props.ad.price,
       details: this.props.ad.details,
       tags: this.props.ad.tags,
-      // user: this.props.ad.user,
       channel_name: this.props.ad.channel_name,
       youtube_url: this.props.ad.youtube_url,
-      // useremail: this.props.ad.useremail,
-      // userlocations: this.props.ad.userlocations,
       channel: this.props.ad.channel,
       thumbnail: this.props.ad.thumbnail
     };
@@ -146,7 +137,6 @@ class SmallScreenResults extends React.Component {
   };
 
   onRemoveHandler = () => {
-    // let { getItems } = this.state;
     var getItems = JSON.parse( localStorage.getItem("savedads") );
     let newlist = getItems.filter(item => item._id !== this.props.ad._id);
     localStorage.setItem("savedads", JSON.stringify(newlist));

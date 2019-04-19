@@ -15,6 +15,7 @@ import SearchTitle from "./AutoComplete";
 import Map from "./MapApi";
 import { connect } from "react-redux";
 import { startGetAds } from "../redux/actions/searchActions";
+import { IconButton, Icon } from "@material-ui/core";
 
 class Search extends Component {
   constructor(props) {
@@ -157,35 +158,40 @@ class Search extends Component {
               </Typography>
               <Divider />  
 
-              <Grid container spacing={8} className="paddingTop" align="center">
-                <Grid item xs={12} md={8} style={{paddingBottom:"50px"}} className="paddingBottom">
+              <Grid container spacing={8} className="paddingTop"  justify="center">
+                <Grid item xs={12} md={8} style={{paddingBottom:"10px"}}   justify="center" className="paddingBottom">
                   <SearchTitle
                     getTitleSearch={this.getTitleSearch}
                     titles={title}
                   />
                 </Grid>
-                
-                {/* <Grid item xs={12} md={4} className="paddingTop">
-                  <select
-                    name="category"
-                    style={{ fontWeight: "bold" }}
-                    value={this.state.category}
-                    onChange={this.onChangeHandler}
-                    className="selectSignUp"
-                  >
-                    <option selected value="all">
-                      All Categories
-                    </option>
-                    <option value="mobiles">Mobiles</option>
-                    <option value="vehicals">Vehicals</option>
-                    <option value="bikes">Bikes</option>
-                    <option value="animals">Animals</option>
-                    <option value="laptops">Laptops</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="property">Property</option>
-                    <option value="books">Books</option>
-                  </select>
-                </Grid> */}
+                <IconButton>
+                      <Icon>search</Icon>
+                  </IconButton>
+                <Grid container md={12} sm={12}>
+                  <Grid item xs={12} md={3} className="paddingTop">
+                    <select
+                      name="category"
+                      style={{ fontWeight: "bold" }}
+                      value={this.state.category}
+                      onChange={this.onChangeHandler}
+                      className="selectSignUp"
+                    >
+                      <option selected value="all">
+                        All Categories
+                      </option>
+                      <option value="mobiles">Mobiles</option>
+                      <option value="vehicals">Vehicals</option>
+                      <option value="bikes">Bikes</option>
+                      <option value="animals">Animals</option>
+                      <option value="laptops">Laptops</option>
+                      <option value="furniture">Furniture</option>
+                      <option value="property">Property</option>
+                      <option value="books">Books</option>
+                    </select>
+                  </Grid>
+                </Grid>
+               
                 {/* <Hidden only={["sm", "xs"]}>
                   <Grid item xs={12} md={4} className="paddingTop">
                     <Map getMapState={this.getMapState} locations={locations} />

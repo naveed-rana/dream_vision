@@ -97,7 +97,7 @@ class MediaControlCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: null,
+      expanded: false,
       open: false,
       message: "",
       getItems: [],
@@ -121,6 +121,7 @@ class MediaControlCard extends Component {
   }
 
   handleClickOpen = () => {
+
     this.setState({ open: true });
   };
 
@@ -145,8 +146,9 @@ class MediaControlCard extends Component {
     this.setState({ message: e.target.value });
   };
 
+
   handleChange = complaintid => (event, expanded) => {
-    if (event.target.classList.contains("otherevent")) {
+    if (event.target.classList.contains("otherevent") || event.target.nodeName==="svg" || event.target.nodeName==="path") {
       return null;
     } else {
       this.setState({
@@ -154,6 +156,7 @@ class MediaControlCard extends Component {
       });
     }
   };
+
 
   onClickHandler = () => {
     // var { getItems } = this.state;
@@ -193,9 +196,12 @@ class MediaControlCard extends Component {
   render() {
     const { classes } = this.props;
     const { expanded, message, viewlater } = this.state;
+
+    toast.success("any fool thing can happen at any time");
+
     return (
       <div>
-        <Dialog
+         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
@@ -244,8 +250,7 @@ class MediaControlCard extends Component {
               Send
             </Button>
           </DialogActions>
-        </Dialog>
-
+        </Dialog> 
         <ExpansionPanel
           expanded={expanded === this.props.ad._id}
           onChange={this.handleChange(this.props.ad._id)}
@@ -255,7 +260,7 @@ class MediaControlCard extends Component {
               <CardMedia
                 className={classes.cover}
                 image={this.props.ad.thumbnail}
-                title="Live from space album cover"
+                title="play video"
               />
               <div className={classes.details}>
                 <CardContent className={classes.content}>
@@ -279,22 +284,26 @@ class MediaControlCard extends Component {
                               title="Save for later view"
                               placement="top"
                             >
-                              <Favorite
-                                onClick={this.onRemoveHandler}
-                                className="iconFix otherevent colorSet"
-                                style={{padding: 10}}
-                              />
+                              <span id="fvrt" >
+                                <Favorite
+                                  onClick={this.onRemoveHandler}
+                                  className="iconFix otherevent colorSet"
+                                  style={{padding: 10}}
+                                />
+                              </span>
                             </Tooltip>
                           ) : (
                             <Tooltip
                               title="Save for later view"
                               placement="top"
                             >
+                            <span id="fvrt" >
                               <Favorite
                                 onClick={this.onClickHandler}
                                 className="iconFix otherevent"
                                 style={{padding: 10}}
                               />
+                            </span>
                             </Tooltip>
                           )}
                           {/* <Tooltip title="Send Message" placement="top">

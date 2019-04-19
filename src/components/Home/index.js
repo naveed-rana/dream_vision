@@ -21,7 +21,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ReactPlayer from "react-player";
 import Tooltip from "@material-ui/core/Tooltip";
 import { toast } from "react-toastify";
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 import styles from "./style"
 
 import { withStyles } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ class Home extends Component {
       adsViewOf: true,
       defVideo:'',
       currentVideo:{},
-      viewlater:false
+      viewlater:false,
     };
   }
 
@@ -47,7 +47,7 @@ class Home extends Component {
     this.setState({
       ads: this.props.ads,
       copyData: this.props.ads,
-      currentVideo:this.props.ads[0]
+      currentVideo:this.props.ads[0],
     });
     console.log(this.props);
   }
@@ -73,22 +73,49 @@ class Home extends Component {
   };
   changeCurrentVideo=(news)=>{
     console.log(news);
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
+    console.log(news);
+    getItems.forEach(element => {
+          if(element.youtube_url == news.youtube_url){
+              this.setState({
+                viewlater:true
+              })
+          }
+          else {
+            this.setState({
+              viewlater:false
+            })
+          }
+    });
     this.setState({
-        currentVideo:news
+        currentVideo:news,
     })
   }
-  addToLater=()=>{
-    this.setState({
-        viewlater:true
-    })
-    toast.success("Saved successfully for later view!");
+  addToLater=(news)=>{
+      var getItems = JSON.parse( localStorage.getItem("savedads") );
+      let obj = {
+        title: news.title,
+        details: news.details,
+        tags: news.tags,
+        channel_name: news.channel_name,
+        youtube_url: news.youtube_url,
+        channel: news.channel,
+        thumbnail: news.thumbnail
+      };
+  
+      getItems.push(obj);
+      localStorage.setItem("savedads", JSON.stringify(getItems));
+      this.setState({ getItems, viewlater: true,addedTofvrt:true });
+      toast.success("Saved successfully for later view!");
   }
-  // removeFromLater=()=>{
-  //   this.setState({
-  //       viewlater:false
-  //   })
-  //   toast.success("Saved successfully for later view!");
-  // }
+  removeFromLater=(news)=>{
+      var getItems = JSON.parse( localStorage.getItem("savedads") );
+      let newlist = getItems.filter(item => item.url !== news.url);
+      localStorage.setItem("savedads", JSON.stringify(newlist));
+      this.setState({ getItems: newlist, viewlater: false });
+      toast.success("Successfully remove from later view list!");
+  }
+
   render() {
 const {classes} = this.props;
 
@@ -156,7 +183,7 @@ const {classes} = this.props;
                                   <Tooltip title="Save for later View" placement="top">
                                     <IconButton
                                       aria-label="Add to favorites"
-                                      onClick={this.onRemoveHandler}
+                                      onClick={()=>this.removeFromLater(currentVideo)}
                                     >
                                       <FavoriteIcon className="colorSet" />
                                     </IconButton>
@@ -165,7 +192,7 @@ const {classes} = this.props;
                                   <Tooltip title="Save for later View" placement="top">
                                     <IconButton
                                       aria-label="Add to favorites"
-                                      onClick={this.addToLater}
+                                      onClick={()=>this.addToLater(currentVideo)}
                                     >
                                       <FavoriteIcon />
                                     </IconButton>

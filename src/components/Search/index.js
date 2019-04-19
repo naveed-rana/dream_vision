@@ -160,7 +160,7 @@ class Search extends Component {
                 
 
               <Grid container spacing={8} className="paddingTop">
-                {/* <Grid item xs={12} md={4} className="paddingTop">
+                <Grid item xs={12} md={4} className="paddingTop">
                   <select
                     name="category"
                     style={{ fontWeight: "bold" }}
@@ -180,7 +180,7 @@ class Search extends Component {
                     <option value="property">Property</option>
                     <option value="books">Books</option>
                   </select>
-                </Grid> */}
+                </Grid>
                 <Grid item xs={12} md={8} className="paddingBottom">
                   <SearchTitle
                     getTitleSearch={this.getTitleSearch}

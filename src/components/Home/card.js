@@ -99,6 +99,12 @@ class RecipeReviewCard extends React.Component {
             <Typography paragraph>
                 {news.details}
             </Typography>
+            {/* <Typography component="p">{news.details}</Typography> */}
+              <Typography variant="caption" className={classes.marginTops}>
+                    Channel Name: <b> {news.channel_name} </b>{" "}
+                    <br /> Tags:
+                    <b> {news.tags} </b>
+              </Typography>
           </CardContent>
         </Collapse>
       </Card>

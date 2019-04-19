@@ -44,12 +44,15 @@ class Home extends Component {
 
   componentDidMount() {
     document.title = "Home";
+    var getItems = JSON.parse( localStorage.getItem("savedads") );
+    this.checkVideoInLater(getItems,this.props.ads[0])
     this.setState({
       ads: this.props.ads,
       copyData: this.props.ads,
       currentVideo:this.props.ads[0],
     });
     console.log(this.props);
+
   }
 
   adsViewOff = () => {
@@ -71,22 +74,35 @@ class Home extends Component {
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
+  checkVideoInLater=(array,news)=>{
+    array.forEach(element => {
+        if(element.youtube_url == news.youtube_url){
+              this.setState({
+                viewlater:true
+              })
+        }
+        else {
+          this.setState({
+            viewlater:false
+          })
+        }})}
   changeCurrentVideo=(news)=>{
     console.log(news);
     var getItems = JSON.parse( localStorage.getItem("savedads") );
     console.log(news);
-    getItems.forEach(element => {
-          if(element.youtube_url == news.youtube_url){
-              this.setState({
-                viewlater:true
-              })
-          }
-          else {
-            this.setState({
-              viewlater:false
-            })
-          }
-    });
+    // getItems.forEach(element => {
+    //       if(element.youtube_url == news.youtube_url){
+    //           this.setState({
+    //             viewlater:true
+    //           })
+    //       }
+    //       else {
+    //         this.setState({
+    //           viewlater:false
+    //         })
+    //       }
+    // });
+    this.checkVideoInLater(getItems,news);
     this.setState({
         currentVideo:news,
     })

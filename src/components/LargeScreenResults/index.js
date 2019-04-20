@@ -148,7 +148,8 @@ class MediaControlCard extends Component {
 
 
   handleChange = complaintid => (event, expanded) => {
-    if (event.target.classList.contains("otherevent") || event.target.nodeName==="svg" || event.target.nodeName==="path") {
+    if (event.target.classList.contains("otherevent") ||  event.target.nodeName==="path" ) {
+      console.log(event.target)
       return null;
     } else {
       this.setState({
@@ -294,13 +295,12 @@ class MediaControlCard extends Component {
                               title="Save for later view"
                               placement="top"
                             >
-                            <span id="fvrt" >
                               <Favorite
+                                id="save"
                                 onClick={this.onClickHandler}
                                 className="iconFix otherevent"
                                 style={{padding: 10}}
                               />
-                            </span>
                             </Tooltip>
                           )}
                           {/* <Tooltip title="Send Message" placement="top">

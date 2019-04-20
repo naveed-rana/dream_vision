@@ -12,7 +12,6 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TableRow from "@material-ui/core/TableRow";
 import LargeScreenResults from "../LargeScreenResults";
 import SearchTitle from "./AutoComplete";
-import Map from "./MapApi";
 import { connect } from "react-redux";
 import { startGetAds } from "../redux/actions/searchActions";
 import { IconButton, Icon } from "@material-ui/core";
@@ -159,7 +158,7 @@ class Search extends Component {
               <Divider />  
 
               <Grid container spacing={8} className="paddingTop"  justify="center">
-                <Grid item xs={12} md={8} style={{paddingBottom:"10px"}}   justify="center" className="paddingBottom">
+                <Grid item xs={8} md={8} style={{paddingBottom:"10px"}}  className="paddingBottom">
                   <SearchTitle
                     getTitleSearch={this.getTitleSearch}
                     titles={title}
@@ -168,8 +167,8 @@ class Search extends Component {
                 <IconButton>
                       <Icon>search</Icon>
                   </IconButton>
-                <Grid container md={12} sm={12}>
-                  <Grid item xs={12} md={3} className="paddingTop">
+                <Grid container>
+                  <Grid item xs={4} md={3} className="paddingTop">
                     <select
                       name="category"
                       style={{ fontWeight: "bold" }}
@@ -177,17 +176,34 @@ class Search extends Component {
                       onChange={this.onChangeHandler}
                       className="selectSignUp"
                     >
-                      <option selected value="all">
+                      <option  value="all">
                         All Categories
                       </option>
-                      <option value="mobiles">Mobiles</option>
+                      {/* <option value="mobiles">Mobiles</option>
                       <option value="vehicals">Vehicals</option>
                       <option value="bikes">Bikes</option>
                       <option value="animals">Animals</option>
                       <option value="laptops">Laptops</option>
                       <option value="furniture">Furniture</option>
                       <option value="property">Property</option>
-                      <option value="books">Books</option>
+                      <option value="books">Books</option> */}
+                       <option value="news">News</option>
+                      <option value="sports">Sports</option>
+                      <option value="entertainment">Entertainment</option>
+                      <option value="science">Science</option>
+                      <option value="knowledge">Knowledge</option>
+                    </select>
+                  </Grid>
+                  <Grid item md={3} xs={4} className="paddingTop">
+                  <select
+                      name="time"
+                      style={{ fontWeight: "bold" }}
+                      value={this.state.category}
+                      onChange={this.onChangeHandler}
+                      className="selectSignUp"
+                    >
+                       <option value="current">Current</option>
+                      <option value="all">All Time</option>
                     </select>
                   </Grid>
                 </Grid>

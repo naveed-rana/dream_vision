@@ -12,7 +12,6 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TableRow from "@material-ui/core/TableRow";
 import LargeScreenResults from "../LargeScreenResults";
 import SearchTitle from "./AutoComplete";
-import Map from "./MapApi";
 import { connect } from "react-redux";
 import { startGetAds } from "../redux/actions/searchActions";
 import { IconButton, Icon } from "@material-ui/core";
@@ -200,10 +199,10 @@ class Search extends Component {
                       onChange={this.onChangeHandler}
                       className="selectSignUp"
                     >
-                      <option selected value="all">
+                      <option  value="all">
                         All Categories
                       </option>
-                      <option value="mobiles">Mobiles</option>
+                      {/* <option value="mobiles">Mobiles</option>
                       <option value="vehicals">Vehicals</option>
                       <option value="bikes">Bikes</option>
                       <option value="animals">Animals</option>

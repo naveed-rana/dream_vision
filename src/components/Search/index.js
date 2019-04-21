@@ -16,7 +16,7 @@ import Map from "./MapApi";
 import { connect } from "react-redux";
 import { startGetAds } from "../redux/actions/searchActions";
 import { IconButton, Icon } from "@material-ui/core";
-
+import axios from "axios";
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +30,8 @@ class Search extends Component {
       locations: "",
       category: "",
       adsViewOf: true,
-      loading: false
+      loading: false,
+      search:''
     };
   }
 
@@ -80,6 +81,25 @@ class Search extends Component {
     this.setState({ category: e.target.value, loading: true });
     this.props.startGetAds({ category: e.target.value });
   };
+
+  onChangeHandlerInput = e => {
+
+    this.setState({search:e.target.value})
+
+  }
+
+  onSubmitHandler = () =>{
+
+    axios.get('http://127.0.0.1:5000/search',{params:{q:this.state.search}})
+    .then(res => {
+      console.log(res)
+      this.setState({copyData:res.data})
+    })
+    .catch(err => {
+      console.error(err); 
+    })
+
+  }
   // getTitleSearch = title => {
   //   title = title.toLowerCase();
   //   this.setState({ title });
@@ -160,17 +180,20 @@ class Search extends Component {
 
               <Grid container spacing={8} className="paddingTop"  justify="center">
                 <Grid item xs={12} md={8} style={{paddingBottom:"10px"}}   justify="center" className="paddingBottom">
-                  <SearchTitle
+                  {/* <SearchTitle
                     getTitleSearch={this.getTitleSearch}
                     titles={title}
-                  />
+                  /> */}
+                  <input
+                  onChange={this.onChangeHandlerInput}
+                  style={{width:'100%',paddingTop:20,paddingBottom:20,paddingLeft:30,paddingRight:30, fontWeight:'bold'}} type="text" placeholder="search your dream video"/>
                 </Grid>
-                <IconButton>
+                <IconButton onClick={this.onSubmitHandler}>
                       <Icon>search</Icon>
                   </IconButton>
                 <Grid container md={12} sm={12}>
                   <Grid item xs={12} md={3} className="paddingTop">
-                    <select
+                    {/* <select
                       name="category"
                       style={{ fontWeight: "bold" }}
                       value={this.state.category}
@@ -188,7 +211,7 @@ class Search extends Component {
                       <option value="furniture">Furniture</option>
                       <option value="property">Property</option>
                       <option value="books">Books</option>
-                    </select>
+                    </select> */}
                   </Grid>
                 </Grid>
                

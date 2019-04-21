@@ -283,7 +283,7 @@ class SmallScreenResults extends React.Component {
             <CardContent>
               <ReactPlayer 
                 url={this.props.ad.youtube_url} 
-                // playing
+                playing
                 controls={true}
                 width='100%' />
               {/* <MediaSlider

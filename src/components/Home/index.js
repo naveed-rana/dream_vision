@@ -23,7 +23,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { toast } from "react-toastify";
 import PropTypes, { element } from 'prop-types';
 import styles from "./style"
-
+import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -44,14 +44,24 @@ class Home extends Component {
 
   componentDidMount() {
     document.title = "Home";
-    var getItems = JSON.parse( localStorage.getItem("savedads") );
-    this.checkVideoInLater(getItems,this.props.ads[0])
+    // var getItems = JSON.parse( localStorage.getItem("savedads") );
+    // this.checkVideoInLater(getItems,this.props.ads[0])
+
     this.setState({
       ads: this.props.ads,
       copyData: this.props.ads,
       currentVideo:this.props.ads[0],
     });
     console.log(this.props);
+
+    axios.get('http://127.0.0.1:5000/featured-videos')
+    .then(res => {
+      console.log(res)
+      this.setState({copyData:res.data,ads:res.data,currentVideo:res.data[0]})
+    })
+    .catch(err => {
+      console.error(err); 
+    })
 
   }
 
@@ -88,7 +98,7 @@ class Home extends Component {
         }})}
   changeCurrentVideo=(news)=>{
     console.log(news);
-    var getItems = JSON.parse( localStorage.getItem("savedads") );
+    // var getItems = JSON.parse( localStorage.getItem("savedads") );
     console.log(news);
     // getItems.forEach(element => {
     //       if(element.youtube_url == news.youtube_url){
@@ -102,13 +112,13 @@ class Home extends Component {
     //         })
     //       }
     // });
-    this.checkVideoInLater(getItems,news);
+    // this.checkVideoInLater(getItems,news);
     this.setState({
         currentVideo:news,
     })
   }
   addToLater=(news)=>{
-      var getItems = JSON.parse( localStorage.getItem("savedads") );
+      // var getItems = JSON.parse( localStorage.getItem("savedads") );
       let obj = {
         title: news.title,
         details: news.details,
@@ -119,16 +129,16 @@ class Home extends Component {
         thumbnail: news.thumbnail
       };
   
-      getItems.push(obj);
-      localStorage.setItem("savedads", JSON.stringify(getItems));
-      this.setState({ getItems, viewlater: true,addedTofvrt:true });
+      // getItems.push(obj);
+      // localStorage.setItem("savedads", JSON.stringify(getItems));
+      // this.setState({ getItems, viewlater: true,addedTofvrt:true });
       toast.success("Saved successfully for later view!");
   }
   removeFromLater=(news)=>{
-      var getItems = JSON.parse( localStorage.getItem("savedads") );
-      let newlist = getItems.filter(item => item.url !== news.url);
-      localStorage.setItem("savedads", JSON.stringify(newlist));
-      this.setState({ getItems: newlist, viewlater: false });
+      // var getItems = JSON.parse( localStorage.getItem("savedads") );
+      // let newlist = getItems.filter(item => item.url !== news.url);
+      // localStorage.setItem("savedads", JSON.stringify(newlist));
+      // this.setState({ getItems: newlist, viewlater: false });
       toast.success("Successfully remove from later view list!");
   }
 
@@ -199,7 +209,7 @@ const {classes} = this.props;
                                   <Tooltip title="Save for later View" placement="top">
                                     <IconButton
                                       aria-label="Add to favorites"
-                                      onClick={()=>this.removeFromLater(currentVideo)}
+                                      // onClick={()=>this.removeFromLater(currentVideo)}
                                     >
                                       <FavoriteIcon className="colorSet" />
                                     </IconButton>
@@ -208,7 +218,7 @@ const {classes} = this.props;
                                   <Tooltip title="Save for later View" placement="top">
                                     <IconButton
                                       aria-label="Add to favorites"
-                                      onClick={()=>this.addToLater(currentVideo)}
+                                      // onClick={()=>this.addToLater(currentVideo)}
                                     >
                                       <FavoriteIcon />
                                     </IconButton>

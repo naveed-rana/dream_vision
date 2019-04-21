@@ -160,28 +160,28 @@ class MediaControlCard extends Component {
 
   onClickHandler = () => {
     // var { getItems } = this.state;
-    var getItems = JSON.parse( localStorage.getItem("savedads") );
-    let obj = {
+    // var getItems = JSON.parse( localStorage.getItem("savedads") );
+    // let obj = {
       // _id: this.props.ad._id,
-      title: this.props.ad.title,
+      // title: this.props.ad.title,
       // category: this.props.ad.category,
       // condition: this.props.ad.price,
       // price: this.props.ad.price,
-      details: this.props.ad.details,
-      tags: this.props.ad.tags,
+      // details: this.props.ad.details,
+      // tags: this.props.ad.tags,
       // user: this.props.ad.user,
-      channel_name: this.props.ad.channel_name,
-      youtube_url: this.props.ad.youtube_url,
+      // channel_name: this.props.ad.channel_name,
+      // youtube_url: this.props.ad.youtube_url,
       // useremail: this.props.ad.useremail,
       // userlocations: this.props.ad.userlocations,
-      channel: this.props.ad.channel,
-      thumbnail: this.props.ad.thumbnail
-    };
+      // channel: this.props.ad.channel,
+      // thumbnail: this.props.ad.thumbnail
+    // };
 
-    getItems.push(obj);
-    localStorage.setItem("savedads", JSON.stringify(getItems));
-    this.setState({ getItems, viewlater: true });
-    toast.success("Saved successfully for later view!");
+    // getItems.push(obj);
+    // localStorage.setItem("savedads", JSON.stringify(getItems));
+    // this.setState({ getItems, viewlater: true });
+    // toast.success("Saved successfully for later view!");
   };
 
   onRemoveHandler = () => {
@@ -343,7 +343,7 @@ class MediaControlCard extends Component {
           <ExpansionPanelDetails>
             <ReactPlayer 
                   url={this.props.ad.youtube_url} 
-                  // playing
+                  playing
                   controls={true}
                   width='100%' />
             {/* <MediaSlider
